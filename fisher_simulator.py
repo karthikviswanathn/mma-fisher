@@ -336,8 +336,7 @@ class FisherSimulator:
             self.model.train()
             opt.zero_grad()
             output = self.forward_pass()
-            # loss = output['neg_logdetF']  # should return scalar tensor (your code returns -slogdet(F))
-            loss = -torch.log(output['F'][1,1])
+            loss = output['neg_logdetF']  # should return scalar tensor (your code returns -slogdet(F))
             # ensure it's on same device & dtype
             # loss = loss.float()
 
